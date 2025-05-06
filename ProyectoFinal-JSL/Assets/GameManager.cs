@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
     public int score = 0; // Puntuación persistente
     public int playerHealth = 3; // Vida persistente
 
+    // Tiempo
+    private float tiempoAcumulado = 0f;
+    public float TiempoAcumulado { get => tiempoAcumulado; set => tiempoAcumulado = value; }
+
     void Awake()
     {
         if (Instance == null)
@@ -44,5 +48,10 @@ public class GameManager : MonoBehaviour
     public int GetHealth()
     {
         return playerHealth;
+    }
+
+    public void ResetTiempo()
+    {
+        tiempoAcumulado = 0f;
     }
 }

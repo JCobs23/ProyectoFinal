@@ -30,7 +30,7 @@ public class GameUI : MonoBehaviour
             // Actualiza la puntuación
             if (scoreText != null)
             {
-                scoreText.text = "Score: " + gameManager.GetScore();
+                scoreText.text = "" + gameManager.GetScore();
             }
 
             // Actualiza las imágenes de vida
