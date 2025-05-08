@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2658186413973060186}
-  - component: {fileID: 7570511714589535932}
   m_Layer: 0
   m_Name: Tree 3
   m_TagString: Untagged
@@ -24,33 +23,21 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928103621953073400}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2928331853105970100}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &7570511714589535932
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928103621953073400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1001 &3398316883419257951
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 2658186413973060186}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c4167db5b13ec5f49995855c426f638d, type: 3}
@@ -98,7 +85,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7577739868436781572, guid: c4167db5b13ec5f49995855c426f638d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: afc508e18b3eeba4cb52847367455f78, type: 2}
     - target: {fileID: 919132149155446097, guid: c4167db5b13ec5f49995855c426f638d, type: 3}
@@ -106,10 +93,13 @@ PrefabInstance:
       value: Tree_3
       objectReference: {fileID: 0}
     - target: {fileID: 5156380648761706199, guid: c4167db5b13ec5f49995855c426f638d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e747e5a42b992c840a261a170693a4a5, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4167db5b13ec5f49995855c426f638d, type: 3}
 --- !u!4 &2928331853105970100 stripped
 Transform:
