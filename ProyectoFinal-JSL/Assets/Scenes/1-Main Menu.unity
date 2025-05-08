@@ -573,6 +573,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca28cfeaeb7ba04db4f15ca4d12969c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  playerHealth: 2
+  maxHealth: 3
+  spiralCount: 0
+  diamondoCount: 0
+  cubieCount: 0
+  hexagonCount: 0
+  sphereGemCount: 0
+  heartCount: 0
+  thunderCount: 0
+  jumpboostCount: 0
 --- !u!4 &149012672
 Transform:
   m_ObjectHideFlags: 0
