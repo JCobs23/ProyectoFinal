@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4e51bd4c578f3e543854a97032c9c6c9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Skybox Cubemap Extended/Core/Editor/Version.asset
+  uploadId: 734105

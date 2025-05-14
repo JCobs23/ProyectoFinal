@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 9245c39feb9195b43a2fb47b5e94f6e0
+timeCreated: 1544997099
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Utils/Scripts/StyledInspector/StyledCategory.cs
+  uploadId: 734105

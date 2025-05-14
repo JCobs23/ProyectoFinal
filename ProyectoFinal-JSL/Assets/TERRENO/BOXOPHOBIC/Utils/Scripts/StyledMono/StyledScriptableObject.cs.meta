@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 04e8b1e17f17f8c4eb969d340f3ee4b2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Utils/Scripts/StyledMono/StyledScriptableObject.cs
+  uploadId: 734105

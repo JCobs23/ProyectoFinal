@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8575d9a0fe92e2640b4bf37278399014
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Skybox Cubemap Extended/Core/Functions/Compute Rotation
+    Y.asset
+  uploadId: 734105

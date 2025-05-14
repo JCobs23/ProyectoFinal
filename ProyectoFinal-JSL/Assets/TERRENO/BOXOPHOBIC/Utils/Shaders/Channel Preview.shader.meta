@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e4235db4198efdd4da9921557a3a8c65
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Utils/Shaders/Channel Preview.shader
+  uploadId: 734105
