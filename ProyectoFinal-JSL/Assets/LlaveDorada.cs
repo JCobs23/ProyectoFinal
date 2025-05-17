@@ -1,54 +1,57 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[System.Diagnostics.DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 public class LlaveDorada : MonoBehaviour
 {
-    [Header("Nombre exacto de la escena a cargar")]
     public string sceneToLoad = "NombreDeLaEscena";
 
-    private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCollider;
+    private Renderer objectRenderer;
+    private Collider collider3D;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        objectRenderer = GetComponent<Renderer>();
+        collider3D = GetComponent<Collider>();
 
-        if (spriteRenderer != null && boxCollider != null)
+        if (objectRenderer != null && collider3D != null)
         {
-            spriteRenderer.enabled = false;
-            boxCollider.enabled = false;
+            objectRenderer.enabled = false;
+            collider3D.enabled = false;
         }
     }
 
     void Update()
     {
-        if (GameManager.Instance.Score >= 50)
+        if (GameManager.Instance != null && GameManager.Instance.Score >= 50)
         {
-            if (!spriteRenderer.enabled)
+            if (!objectRenderer.enabled)
             {
-                spriteRenderer.enabled = true;
-                boxCollider.enabled = true;
+                objectRenderer.enabled = true;
+                collider3D.enabled = true;
+                Debug.Log("Llave visible y activada");
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameManager.Instance.Score >= 50)
         {
-            if (GameManager.Instance.Score >= 50)
+            if (!string.IsNullOrEmpty(sceneToLoad))
             {
-                if (!string.IsNullOrEmpty(sceneToLoad))
-                {
-                    Debug.Log("Cargando escena: " + sceneToLoad);
-                    SceneManager.LoadScene(sceneToLoad);
-                }
-                else
-                {
-                    Debug.LogWarning("¡El nombre de la escena está vacío! Verifica en el Inspector.");
-                }
+                Debug.Log("Llave recogida, cargando escena: " + sceneToLoad);
+                SceneManager.LoadScene(sceneToLoad);
+            }
+            else
+            {
+                Debug.LogWarning("¡El nombre de la escena está vacío! Verifica en el Inspector.");
             }
         }
+    }
+
+    private string GetDebuggerDisplay()
+    {
+        return ToString();
     }
 }
