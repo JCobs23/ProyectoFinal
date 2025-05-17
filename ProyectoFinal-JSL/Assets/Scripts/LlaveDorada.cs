@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[System.Diagnostics.DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 public class LlaveDorada : MonoBehaviour
 {
     public string sceneToLoad = "NombreDeLaEscena";
@@ -23,6 +22,8 @@ public class LlaveDorada : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Score actual: " + GameManager.Instance.Score);
+
         if (GameManager.Instance != null && GameManager.Instance.Score >= 50)
         {
             if (!objectRenderer.enabled)
@@ -36,6 +37,8 @@ public class LlaveDorada : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Colisión con: " + other.name);
+
         if (other.CompareTag("Player") && GameManager.Instance.Score >= 50)
         {
             if (!string.IsNullOrEmpty(sceneToLoad))
@@ -48,10 +51,5 @@ public class LlaveDorada : MonoBehaviour
                 Debug.LogWarning("¡El nombre de la escena está vacío! Verifica en el Inspector.");
             }
         }
-    }
-
-    private string GetDebuggerDisplay()
-    {
-        return ToString();
     }
 }
