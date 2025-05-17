@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 8759ec410a6774b4ea13ae32dc2b8d2e
-NativeFormatImporter:
+guid: 2e260ef4356fc7441afa92112bf75b20
+DefaultImporter:
   externalObjects: {}
-  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,5 +10,5 @@ AssetOrigin:
   productId: 191449
   packageName: Simple Water Shader URP
   packageVersion: 1.0.0
-  assetPath: Assets/EFECTOS/IgniteCoders/Simple Water Shader/Resources/Water_mat_02.mat
+  assetPath: Assets/IgniteCoders/Simple Water Shader/Demo.unity
   uploadId: 422776
