@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Tiempo
     private float tiempoAcumulado = 0f;
     public float TiempoAcumulado { get => tiempoAcumulado; set => tiempoAcumulado = value; }
+    public int Score { get; internal set; }
 
     // Evento para notificar cambios en la salud
     public delegate void HealthChangedHandler(int newHealth);
