@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:ProyectoFinal-JSL/Assets/Shaders/TerrainTex(Delete)/Rock.fbx.meta
 guid: c475b5341b97ac042acd4a0b039fa40e
+========
+guid: 06c7f4d3e7c0da74ab6f6db950df18b3
+>>>>>>>> origin/Santiago:ProyectoFinal-JSL/Assets/TERRENO/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Meshes/LowPoly - Fence A.FBX.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -107,6 +111,7 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+<<<<<<<< HEAD:ProyectoFinal-JSL/Assets/Shaders/TerrainTex(Delete)/Rock.fbx.meta
 AssetOrigin:
   serializedVersion: 1
   productId: 292492
@@ -114,3 +119,5 @@ AssetOrigin:
   packageVersion: 1.0
   assetPath: Assets/Shaders/TerrainTex(Delete)/Rock.fbx
   uploadId: 684944
+========
+>>>>>>>> origin/Santiago:ProyectoFinal-JSL/Assets/TERRENO/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Meshes/LowPoly - Fence A.FBX.meta

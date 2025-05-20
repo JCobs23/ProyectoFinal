@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:ProyectoFinal-JSL/Assets/TERRENO/BOXOPHOBIC/Skybox Cubemap Extended/Core/Shaders.meta
 guid: c0227f98e026d2744a2fa5b0ac08b28a
+========
+guid: 9d444da0a0d97074c813ba208167e81b
+>>>>>>>> origin/Santiago:ProyectoFinal-JSL/Assets/RainMaker/Demo.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
