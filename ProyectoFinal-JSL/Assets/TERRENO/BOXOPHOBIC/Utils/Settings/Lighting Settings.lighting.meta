@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e052b1d56e1bde14ab5ab2d9181a3732
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Utils/Settings/Lighting Settings.lighting
+  uploadId: 734105

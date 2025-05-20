@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0ffa5f287dc222d4888fe0797515c78a
+timeCreated: 1491898618
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Materials/LowPoly - TreeTrunk.mat
+  uploadId: 734105

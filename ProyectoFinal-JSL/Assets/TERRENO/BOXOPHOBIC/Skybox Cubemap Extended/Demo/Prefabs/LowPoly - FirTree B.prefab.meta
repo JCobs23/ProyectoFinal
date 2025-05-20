@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7eb61370662a2214691df55095c3f777
+timeCreated: 1492248959
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107400
+  packageName: FREE Skybox Extended Shader
+  packageVersion: 2.2.0
+  assetPath: Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Prefabs/LowPoly - FirTree
+    B.prefab
+  uploadId: 734105
