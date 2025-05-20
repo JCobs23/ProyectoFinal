@@ -30,4 +30,20 @@ public class PlataformaContainer : MonoBehaviour
         //    Debug.Log("PlataformaContenedor moviéndose a: " + transform.position);
         //}
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.transform.parent = this.transform;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.transform.parent = null;
+        }
+    }
+
 }

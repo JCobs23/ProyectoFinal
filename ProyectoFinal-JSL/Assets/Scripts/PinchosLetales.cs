@@ -1,16 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PinchosLetales : MonoBehaviour
+public class PinchosAsesinos : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Aquí puedes hacer una animación de muerte, sonido, etc.
-            Debug.Log("¡Jugador muerto por pinchos!");
-
-            // Reinicia la escena actual
+            Debug.Log("Â¡Ay no! El jugador tocÃ³ los pinchos ðŸ˜± Reiniciando escena...");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
