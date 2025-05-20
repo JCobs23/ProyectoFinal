@@ -10,8 +10,7 @@ public class PinchosLetales : MonoBehaviour
             // Aquí puedes hacer una animación de muerte, sonido, etc.
             Debug.Log("¡Jugador muerto por pinchos!");
 
-            // Reinicia la escena actual
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+           
         }
     }
 }
