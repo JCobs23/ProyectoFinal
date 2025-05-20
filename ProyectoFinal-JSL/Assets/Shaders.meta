@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:ProyectoFinal-JSL/Assets/Shaders.meta
 guid: 9059232af4c05a34d9f2178971c5537a
+========
+guid: e56a74cc5a6b2c444a910028629b5eb8
+>>>>>>>> origin/Santiago:ProyectoFinal-JSL/Assets/TERRENO.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

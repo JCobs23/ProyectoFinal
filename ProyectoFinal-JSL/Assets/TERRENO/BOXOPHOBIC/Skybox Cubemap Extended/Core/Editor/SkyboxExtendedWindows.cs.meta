@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d27e3d7374c3f0c4482f942ced69b973
 MonoImporter:
   externalObjects: {}
@@ -16,3 +17,6 @@ AssetOrigin:
   packageVersion: 2.2.0
   assetPath: Assets/BOXOPHOBIC/Skybox Cubemap Extended/Core/Editor/SkyboxExtendedWindows.cs
   uploadId: 734105
+=======
+guid: d27e3d7374c3f0c4482f942ced69b973
+>>>>>>> origin/Santiago
