@@ -6,10 +6,15 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText; // Texto para la puntuación
     [SerializeField] private Image[] healthImages; // Imágenes para la vida
+    [SerializeField] private GameObject llavePrefab; // Asigna tu prefab de llave en el Inspector
+    private bool llaveInstanciada = false;
+    private Transform spawnPoint;
 
     private GameManager gameManager;
     private int lastKnownHealth; // Para rastrear cambios en la salud
     private int lastKnownScore; // Para rastrear cambios en la puntuación
+ 
+
 
     void Start()
     {
@@ -32,6 +37,17 @@ public class GameUI : MonoBehaviour
 
         // Actualizar la UI inicial
         UpdateUI();
+
+        LlaveSpawner spawner = FindObjectOfType<LlaveSpawner>();
+        if (spawner != null)
+        {
+            spawnPoint = spawner.spawnPoint;
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró un LlaveSpawner en esta escena.");
+        }
+
     }
 
     // Método llamado cuando cambia la salud
@@ -54,6 +70,14 @@ public class GameUI : MonoBehaviour
                 Debug.Log($"Cambio de puntuación detectado: {lastKnownScore} -> {currentScore}");
                 lastKnownScore = currentScore;
                 UpdateScoreUI();
+
+                // Verifica si alcanzó el puntaje para aparecer la llave
+                if (!llaveInstanciada && lastKnownScore >= 100 && spawnPoint != null)
+                {
+                    Instantiate(llavePrefab, spawnPoint.position, Quaternion.identity);
+                    llaveInstanciada = true;
+                }
+
             }
         }
     }
@@ -115,4 +139,5 @@ public class GameUI : MonoBehaviour
             Debug.Log("GameUI: Desuscrito de eventos de GameManager (OnDestroy)");
         }
     }
+
 }
