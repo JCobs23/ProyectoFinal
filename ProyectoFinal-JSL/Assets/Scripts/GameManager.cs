@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -119,6 +121,8 @@ public class GameManager : MonoBehaviour
         if (playerHealth <= 0)
         {
             Debug.Log("Game Over - El jugador ha perdido todas las vidas");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
             // Lógica adicional para el Game Over
         }
     }
