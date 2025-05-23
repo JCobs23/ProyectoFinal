@@ -1,8 +1,10 @@
 fileFormatVersion: 2
-guid: 231d3ae1fbdb46c4985625133d1d2fea
-timeCreated: 1480149225
+guid: 715b8de8ab3daeb4c9d9ed94751ebc14
+timeCreated: 1528101563
 licenseType: Store
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,5 +13,5 @@ AssetOrigin:
   productId: 131886
   packageName: Fire Effect Vol.1
   packageVersion: 1.1
-  assetPath: Assets/EFECTOS/FUEGO/Material/Skill/Smoke_Blend_01.mat
+  assetPath: Assets/EFECTOS/FUEGO/Material/Base/Fire_Add_03.mat
   uploadId: 526751
