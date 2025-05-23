@@ -127,6 +127,7 @@ MonoBehaviour:
   - {fileID: 1045127646712794332}
   - {fileID: 6609160914743091891}
   - {fileID: 7839743579781830601}
+  llavePrefab: {fileID: 0}
 --- !u!114 &1330921810293386786
 MonoBehaviour:
   m_ObjectHideFlags: 0
