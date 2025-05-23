@@ -1,35 +1,76 @@
 using UnityEngine;
 using StarterAssets;
 
+/// <summary>
+/// Clase que representa un objeto coleccionable en el juego, como monedas o power-ups.
+/// </summary>
 public class Coin : MonoBehaviour
 {
+    /// <summary>
+    /// Enumeracion que define los tipos de objetos coleccionables.
+    /// </summary>
     public enum ItemType
     {
-        Thunder, 
-        JumpBoost,   
+        Thunder,
+        JumpBoost,
         Heart,
-        Spiral,  
-        Cubie,   
+        Spiral,
+        Cubie,
         Hexagon,
-        SphereGem, 
+        SphereGem,
         Diamondo
     }
 
-    [SerializeField] private int points = 100; // Puntuación del objeto
-    [SerializeField] private AudioClip collectSound; // Sonido al recoger
-    [SerializeField] private ItemType itemType; // Tipo de elemento
-    [SerializeField] private float speedBoostMultiplier = 2f; // Multiplicador de velocidad (0 para sin efecto)
-    [SerializeField] private float jumpBoostMultiplier = 2f; // Multiplicador de altura de salto (0 para sin efecto)
-    [SerializeField] private float jumpPowerMultiplier = 0.5f; // Multiplicador de gravedad para potencia de salto (0 para sin efecto, 1 para gravedad normal)
-    [SerializeField] private int heartPoints = 1; // Puntos de vida otorgados por Heart (0 para sin efecto)
-    [SerializeField] private CharacterController playerController; // CharacterController asignado en el Inspector
+    /// <summary>
+    /// Puntuacion otorgada al recoger el objeto.
+    /// </summary>
+    [SerializeField] private int points = 100;
 
+    /// <summary>
+    /// Sonido reproducido al recoger el objeto.
+    /// </summary>
+    [SerializeField] private AudioClip collectSound;
+
+    /// <summary>
+    /// Tipo de elemento coleccionable.
+    /// </summary>
+    [SerializeField] private ItemType itemType;
+
+    /// <summary>
+    /// Multiplicador de velocidad aplicado al recoger un objeto Thunder (0 para sin efecto).
+    /// </summary>
+    [SerializeField] private float speedBoostMultiplier = 2f;
+
+    /// <summary>
+    /// Multiplicador de altura de salto aplicado al recoger un objeto JumpBoost (0 para sin efecto).
+    /// </summary>
+    [SerializeField] private float jumpBoostMultiplier = 2f;
+
+    /// <summary>
+    /// Multiplicador de gravedad para potencia de salto (0 para sin efecto, 1 para gravedad normal).
+    /// </summary>
+    [SerializeField] private float jumpPowerMultiplier = 0.5f;
+
+    /// <summary>
+    /// Puntos de vida otorgados al recoger un objeto Heart (0 para sin efecto).
+    /// </summary>
+    [SerializeField] private int heartPoints = 1;
+
+    /// <summary>
+    /// Referencia al CharacterController asignado en el Inspector.
+    /// </summary>
+    [SerializeField] private CharacterController playerController;
+
+    /// <summary>
+    /// Metodo ejecutado cuando otro collider entra en contacto con el objeto.
+    /// </summary>
+    /// <param name="other">El collider que entra en contacto con el objeto.</param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log($"Colisión detectada con: {other.name}, Tag: {other.tag}");
-            // Envía los puntos al GameManager
+            Debug.Log($"Colision detectada con: {other.name}, Tag: {other.tag}");
+            // Envia los puntos al GameManager
             var gameManager = GameManager.Instance;
             if (gameManager != null)
             {
@@ -40,7 +81,7 @@ public class Coin : MonoBehaviour
                 Debug.LogError("GameManager no encontrado!");
             }
 
-            // Aplica efectos según el tipo de elemento
+            // Aplica efectos segun el tipo de elemento
             ApplyItemEffect(other);
 
             // Reproduce el sonido
@@ -54,6 +95,10 @@ public class Coin : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Aplica el efecto correspondiente al tipo de objeto coleccionado.
+    /// </summary>
+    /// <param name="player">El collider del jugador que recoge el objeto.</param>
     private void ApplyItemEffect(Collider player)
     {
         if (playerController == null)
@@ -121,24 +166,30 @@ public class Coin : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Aplica un efecto de aumento de velocidad al jugador durante un tiempo determinado.
+    /// </summary>
+    /// <param name="player">El collider del jugador que recibe el efecto.</param>
+    /// <param name="duration">Duracion del efecto en segundos.</param>
+    /// <returns>Un IEnumerator para controlar la corrutina.</returns>
     private System.Collections.IEnumerator ApplySpeedBoost(Collider player, float duration)
     {
         Debug.Log($"Iniciando SpeedBoost con multiplicador: {speedBoostMultiplier}");
         float elapsed = 0f;
         while (elapsed < duration)
         {
-            // Detecta la entrada del jugador para la dirección del movimiento
+            // Detecta la entrada del jugador para la direccion del movimiento
             float moveX = Input.GetAxisRaw("Horizontal");
             float moveZ = Input.GetAxisRaw("Vertical");
             Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized;
 
-            // Aplica movimiento adicional en la dirección de entrada
+            // Aplica movimiento adicional en la direccion de entrada
             if (moveDirection != Vector3.zero)
             {
-                float speed = speedBoostMultiplier * 5f; // Ajusta 5f según la velocidad base del juego
+                float speed = speedBoostMultiplier * 5f; // Ajusta 5f segun la velocidad base del juego
                 Vector3 move = moveDirection * speed * Time.deltaTime;
                 playerController.Move(move);
-                Debug.Log($"Aplicando velocidad: {move.magnitude} en frame {Time.frameCount}");
+                Debug.Log($"-aplicando velocidad: {move.magnitude} en frame {Time.frameCount}");
             }
 
             elapsed += Time.deltaTime;
@@ -148,6 +199,12 @@ public class Coin : MonoBehaviour
         Debug.Log("SpeedBoost finalizado");
     }
 
+    /// <summary>
+    /// Aplica un efecto de aumento de salto al jugador durante un tiempo determinado.
+    /// </summary>
+    /// <param name="player">El collider del jugador que recibe el efecto.</param>
+    /// <param name="duration">Duracion del efecto en segundos.</param>
+    /// <returns>Un IEnumerator para controlar la corrutina.</returns>
     private System.Collections.IEnumerator ApplyJumpBoost(Collider player, float duration)
     {
         var thirdPersonController = player.GetComponent<ThirdPersonController>();
@@ -165,7 +222,7 @@ public class Coin : MonoBehaviour
         thirdPersonController.Gravity *= jumpPowerMultiplier;
         Debug.Log($"Iniciando JumpBoost: JumpHeight cambiado de {originalJumpHeight} a {thirdPersonController.JumpHeight}, Gravity cambiado de {originalGravity} a {thirdPersonController.Gravity}");
 
-        // Espera la duración del efecto
+        // Espera la duracion del efecto
         yield return new WaitForSeconds(duration);
 
         // Restaura los valores originales
