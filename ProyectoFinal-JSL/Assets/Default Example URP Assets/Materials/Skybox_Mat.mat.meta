@@ -6,3 +6,10 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 176085
+  packageName: LWRP Vertical Fog
+  packageVersion: 1.0
+  assetPath: Assets/Default Example URP Assets/Materials/Skybox_Mat.mat
+  uploadId: 385281

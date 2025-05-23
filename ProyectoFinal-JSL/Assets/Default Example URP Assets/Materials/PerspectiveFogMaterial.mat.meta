@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: be76e5f14cfee674cb30b491fb72b09b
-MonoImporter:
+guid: 47e7d23eecc45a549855bb15fae88d93
+NativeFormatImporter:
   externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -14,5 +11,5 @@ AssetOrigin:
   productId: 176085
   packageName: LWRP Vertical Fog
   packageVersion: 1.0
-  assetPath: Assets/Default Example URP Assets/Scripts/SimpleCameraController.cs
+  assetPath: Assets/Default Example URP Assets/Materials/PerspectiveFogMaterial.mat
   uploadId: 385281
