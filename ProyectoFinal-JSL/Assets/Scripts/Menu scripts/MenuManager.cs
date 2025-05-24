@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.DeleteKey("PlayerZ");
         PlayerPrefs.Save(); // Asegura que se apliquen
 
-        // Cargar escena inicial
+        
         SceneManager.LoadScene("Scenes/LVL1 - RNW");
     }
 
