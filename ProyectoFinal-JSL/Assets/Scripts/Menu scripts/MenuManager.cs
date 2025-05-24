@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
+using System.Collections;
 
 public class MenuManager : MonoBehaviour
 {
@@ -17,11 +19,11 @@ public class MenuManager : MonoBehaviour
 
         if (continueButton != null)
         {
-            continueButton.onClick.AddListener(LoadSavedGame);
+            continueButton.onClick.AddListener(() => StartCoroutine(LoadSavedGame()));
 
-            // Desactivar botón si no hay partida guardada
-            if (!PlayerPrefs.HasKey("SavedScene"))
-                continueButton.interactable = false;
+            // Desactivar botón si no hay archivo de guardado
+            string path = Path.Combine(Application.persistentDataPath, "savegame.json");
+            continueButton.interactable = File.Exists(path);
         }
         else
         {
@@ -33,33 +35,43 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("StartNewGame ejecutado");
 
-        // Borrar datos de guardado
-        PlayerPrefs.DeleteKey("SavedScene");
-        PlayerPrefs.DeleteKey("PlayerX");
-        PlayerPrefs.DeleteKey("PlayerY");
-        PlayerPrefs.DeleteKey("PlayerZ");
-        PlayerPrefs.Save(); // Asegura que se apliquen
+        // Elimina el archivo de guardado si existe
+        string path = Path.Combine(Application.persistentDataPath, "savegame.json");
+        if (File.Exists(path))
+            File.Delete(path);
 
-        
         SceneManager.LoadScene("Scenes/LVL1 - RNW");
     }
 
-
-    public void LoadSavedGame()
+    public IEnumerator LoadSavedGame()
     {
-        string savedScene = PlayerPrefs.GetString("SavedScene", "");
-
-        if (!string.IsNullOrEmpty(savedScene))
-        {
-            Debug.Log("Cargando partida guardada: " + savedScene);
-            SceneManager.LoadScene(savedScene);
-        }
-        else
+        string path = Path.Combine(Application.persistentDataPath, "savegame.json");
+        if (!File.Exists(path))
         {
             Debug.LogWarning("No se encontró una partida guardada.");
-            // Opcional: puedes desactivar el botón Continue si no hay partida guardada
             if (continueButton != null)
                 continueButton.interactable = false;
+            yield break;
         }
+
+        string json = File.ReadAllText(path);
+        PauseMenuController.SaveData data = JsonUtility.FromJson<PauseMenuController.SaveData>(json);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(data.sceneName);
+        while (!asyncLoad.isDone)
+            yield return null;
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            player.transform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.TiempoAcumulado = data.gameTime;
+        }
+
+        Debug.Log("Partida cargada correctamente.");
     }
 }
