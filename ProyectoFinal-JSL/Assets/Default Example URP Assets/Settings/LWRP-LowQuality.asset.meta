@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 37db1418c93b6584b8fb9c51ee035b0f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 176085
+  packageName: LWRP Vertical Fog
+  packageVersion: 1.0
+  assetPath: Assets/Default Example URP Assets/Settings/LWRP-LowQuality.asset
+  uploadId: 385281
