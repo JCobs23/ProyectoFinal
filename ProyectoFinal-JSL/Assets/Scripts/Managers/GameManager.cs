@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour
             Debug.Log("Ya existe una instancia de GameManager, destruyendo duplicado");
             Destroy(gameObject);
         }
+        Debug.Log("GameManager inicializado. Contadores actuales:");
+        Debug.Log($"Spiral: {spiralCount}, Diamondo: {diamondoCount}, Cubie: {cubieCount}, Hexagon: {hexagonCount}, SphereGem: {sphereGemCount}, Thunder: {thunderCount}, JumpBoost: {jumpboostCount}, Heart: {heartCount}");
+
     }
 
     /// <summary>
@@ -164,4 +167,15 @@ public class GameManager : MonoBehaviour
     {
         tiempoAcumulado = 0f;
     }
+
+    /// <summary>
+    /// Devuelve la suma total de todas las gemas recolectadas.
+    /// </summary>
+    public int TotalGemCount()
+    {
+        return spiralCount + diamondoCount + cubieCount + hexagonCount + sphereGemCount +
+               thunderCount + jumpboostCount + heartCount;
+    }
+
+
 }
