@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    public GameObject pausePanel; // Asigna PausePanel desde el inspector
+    public GameObject pausePanel;
 
     private bool isPaused = false;
 
@@ -27,7 +27,7 @@ public class PauseMenuController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            // Asegura que todos los hijos del panel se activen
+           
             foreach (Transform child in pausePanel.GetComponentsInChildren<Transform>(true))
             {
                 child.gameObject.SetActive(true);
@@ -41,7 +41,7 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    // === LLAMAR DESDE EL BOTÓN CONTINUE ===
+  
     public void ContinueGame()
     {
         isPaused = false;
@@ -51,7 +51,7 @@ public class PauseMenuController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    // === LLAMAR DESDE EL BOTÓN "Save & Exit" ===
+   
     public void SaveAndExit()
     {
         SaveGame();
@@ -59,7 +59,7 @@ public class PauseMenuController : MonoBehaviour
         SceneManager.LoadScene("1-Main Menu");
     }
 
-    // === LLAMAR DESDE EL BOTÓN "Menu" (sin guardar) ===
+    
     public void ExitWithoutSaving()
     {
         Time.timeScale = 1f;
