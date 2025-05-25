@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Clase <c>PlataformaFisica</c> que gestiona la interaccion entre un jugador y una plataforma en Unity.
+/// Clase <c>PlataformaFisica</c> que gestiona la interacción física entre un jugador y una plataforma en Unity.
 /// </summary>
 public class PlataformaFisica : MonoBehaviour
 {
@@ -14,13 +14,12 @@ public class PlataformaFisica : MonoBehaviour
     /// Se ejecuta cuando un objeto colisiona con la plataforma. 
     /// Si es el jugador, se establece como hijo del contenedor.
     /// </summary>
-    /// <param name="collision">Colision detectada.</param>
+    /// <param name="collision">Colisión detectada.</param>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Hacer que el personaje sea hijo del contenedor
-            collision.transform.SetParent(contenedor);
+            collision.transform.SetParent(contenedor, true); // true conserva la posición
         }
     }
 
@@ -28,13 +27,12 @@ public class PlataformaFisica : MonoBehaviour
     /// Se ejecuta cuando un objeto deja de colisionar con la plataforma. 
     /// Si es el jugador, se elimina como hijo del contenedor.
     /// </summary>
-    /// <param name="collision">Colision detectada.</param>
+    /// <param name="collision">Colisión detectada.</param>
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Quitar al personaje como hijo
-            collision.transform.SetParent(null);
+            collision.transform.SetParent(null, true);
         }
     }
 }
