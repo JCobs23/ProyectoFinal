@@ -89,6 +89,30 @@ public class Enemigo : MonoBehaviour
     /// </summary>
     void Start()
     {
+        var dificultad = DifficultyManager.Instance.GetDifficulty();
+
+        switch (dificultad)
+        {
+            case Dificultad.Easy:
+                VelocidadMovimiento = 1.5f;
+                velocidadAtaque = 0.3f;
+                zonaDeDeteccion = 7;
+                intervaloDanio = 1.5f;
+                break;
+            case Dificultad.Normal:
+                VelocidadMovimiento = 2f;
+                velocidadAtaque = 0.5f;
+                zonaDeDeteccion = 10;
+                intervaloDanio = 1f;
+                break;
+            case Dificultad.Hard:
+                VelocidadMovimiento = 3f;
+                velocidadAtaque = 1f;
+                zonaDeDeteccion = 13;
+                intervaloDanio = 0.6f;
+                break;
+        }
+
         animator = GetComponent<Animator>();
         tiempoUltimoDanio = -intervaloDanio;
         audioSource = GetComponent<AudioSource>();
