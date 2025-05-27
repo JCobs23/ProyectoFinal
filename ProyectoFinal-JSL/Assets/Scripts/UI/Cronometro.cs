@@ -72,6 +72,21 @@ public class Cronometro : MonoBehaviour
     }
 
     /// <summary>
+    /// Reinicia el cronometro, estableciendo el tiempo acumulado a cero y actualizando el texto.
+    /// </summary>
+    public void ResetearTiempo()
+    {
+        GameManager.Instance.TiempoAcumulado = 0f;
+        tiempoMinutos = 0;
+        tiempoSegundos = 0;
+        tiempoMilisegundos = 0;
+        if (textoCronometro != null)
+        {
+            textoCronometro.text = "00:00:00";
+        }
+    }
+
+    /// <summary>
     /// Reanuda el cronometro, permitiendo que el tiempo se actualice nuevamente.
     /// </summary>
     public void ReanudarTiempo()

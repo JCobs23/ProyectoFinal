@@ -1,7 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que carga la posicion del jugador desde los datos guardados en PlayerPrefs.
+/// </summary>
 public class LoadPlayerPosition : MonoBehaviour
 {
+    /// <summary>
+    /// Carga la posicion guardada del jugador al iniciar.
+    /// </summary>
     void Start()
     {
         if (PlayerPrefs.HasKey("PlayerX") &&
@@ -13,11 +19,11 @@ public class LoadPlayerPosition : MonoBehaviour
             float z = PlayerPrefs.GetFloat("PlayerZ");
 
             transform.position = new Vector3(x, y, z);
-            Debug.Log("Posición cargada del guardado.");
+            Debug.Log("Posicion cargada del guardado.");
         }
         else
         {
-            Debug.Log("No hay datos guardados de posición.");
+            Debug.Log("No hay datos guardados de posicion.");
         }
     }
 }

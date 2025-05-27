@@ -1,64 +1,96 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Clase que aplica un efecto de desplazamiento a una textura de detalle en un componente de imagen UI.
+/// </summary>
 [RequireComponent(typeof(Image))]
 public class ScrollDetailTexture : MonoBehaviour
 {
-	public bool uniqueMaterial = false;
-	public Vector2 scrollPerSecond = Vector2.zero;
+    /// <summary>
+    /// Indica si se debe usar un material unico para el efecto.
+    /// </summary>
+    public bool uniqueMaterial = false;
 
-	Matrix4x4 m_Matrix;
-	Material mCopy;
-	Material mOriginal;
-	Image mSprite;
-	Material m_Mat;
+    /// <summary>
+    /// Velocidad de desplazamiento de la textura por segundo.
+    /// </summary>
+    public Vector2 scrollPerSecond = Vector2.zero;
 
-	void OnEnable ()
-	{
-		mSprite = GetComponent<Image>();
-		mOriginal = mSprite.material;
+    /// <summary>
+    /// Matriz de transformacion para el efecto de desplazamiento.
+    /// </summary>
+    private Matrix4x4 m_Matrix;
 
-		if (uniqueMaterial && mSprite.material != null)
-		{
-			mCopy = new Material(mOriginal);
-			mCopy.name = "Copy of " + mOriginal.name;
-			mCopy.hideFlags = HideFlags.DontSave;
-			mSprite.material = mCopy;
-		}
-	}
+    /// <summary>
+    /// Copia del material para modificaciones.
+    /// </summary>
+    private Material mCopy;
 
-	void OnDisable ()
-	{
-		if (mCopy != null)
-		{
-			mSprite.material = mOriginal;
-			if (Application.isEditor)
-				UnityEngine.Object.DestroyImmediate(mCopy);
-			else
-				UnityEngine.Object.Destroy(mCopy);
-			mCopy = null;
-		}
-		mOriginal = null;
-	}
+    /// <summary>
+    /// Material original del componente Image.
+    /// </summary>
+    private Material mOriginal;
 
-	void Update ()
-	{
-		Material mat = (mCopy != null) ? mCopy : mOriginal;
+    /// <summary>
+    /// Referencia al componente Image.
+    /// </summary>
+    private Image mSprite;
 
-		if (mat != null)
-		{
-			Texture tex = mat.GetTexture("_DetailTex");
+    /// <summary>
+    /// Material activo para el efecto de desplazamiento.
+    /// </summary>
+    private Material m_Mat;
 
-			if (tex != null)
-			{
-				mat.SetTextureOffset("_DetailTex", scrollPerSecond * Time.time);
+    /// <summary>
+    /// Inicializa el componente Image y configura el material para el efecto de desplazamiento.
+    /// </summary>
+    void OnEnable()
+    {
+        mSprite = GetComponent<Image>();
+        mOriginal = mSprite.material;
 
-				// TODO: It would be better to add support for MaterialBlocks on UIRenderer,
-				// because currently only one Update() function's matrix can be active at a time.
-				// With material block properties, the batching would be correctly broken up instead,
-				// and would work with multiple widgets using this detail shader.
-			}
-		}
-	}
+        if (uniqueMaterial && mSprite.material != null)
+        {
+            mCopy = new Material(mOriginal);
+            mCopy.name = "Copy of " + mOriginal.name;
+            mCopy.hideFlags = HideFlags.DontSave;
+            mSprite.material = mCopy;
+        }
+    }
+
+    /// <summary>
+    /// Restaura el material original y destruye la copia al desactivar el componente.
+    /// </summary>
+    void OnDisable()
+    {
+        if (mCopy != null)
+        {
+            mSprite.material = mOriginal;
+            if (Application.isEditor)
+                UnityEngine.Object.DestroyImmediate(mCopy);
+            else
+                UnityEngine.Object.Destroy(mCopy);
+            mCopy = null;
+        }
+        mOriginal = null;
+    }
+
+    /// <summary>
+    /// Aplica el efecto de desplazamiento a la textura de detalle en cada frame.
+    /// </summary>
+    void Update()
+    {
+        Material mat = (mCopy != null) ? mCopy : mOriginal;
+
+        if (mat != null)
+        {
+            Texture tex = mat.GetTexture("_DetailTex");
+
+            if (tex != null)
+            {
+                mat.SetTextureOffset("_DetailTex", scrollPerSecond * Time.time);
+            }
+        }
+    }
 }

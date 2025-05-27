@@ -167,6 +167,22 @@ public class GameManager : MonoBehaviour
     {
         tiempoAcumulado = 0f;
     }
+    public void ResetearPuntuacion()
+    {
+        score = 0;
+        Debug.Log("Puntuacion reiniciada a 0.");
+
+        //ResetearContadores
+        spiralCount = 0;
+        diamondoCount = 0;
+        cubieCount = 0;
+        hexagonCount = 0;
+        sphereGemCount = 0;
+        thunderCount = 0;
+        jumpboostCount = 0;
+        heartCount = 0;
+        Debug.Log("Contadores de gemas reiniciados a 0.");
+    }
 
     /// <summary>
     /// Devuelve la suma total de todas las gemas recolectadas.
